@@ -1,0 +1,34 @@
+# FFS (Fast-FoundationStereo) 环境
+# 前置要求:
+#   - NVIDIA ZED SDK 已安装 (pyzed 依赖其 DLL)
+#   - PyTorch nightly cu128 用于 RTX 50 系列 (sm_120)
+# 创建: conda env create -f environment.yaml
+# 更新: conda env update -f environment.yaml --prune
+name: ffs
+channels:
+  - defaults
+dependencies:
+  - python=3.12
+  - pip
+  - pip:
+      - einops
+      - gdown
+      - huggingface-hub
+      - hydra-core
+      - imageio
+      - matplotlib
+      - numpy
+      - omegaconf
+      - open3d>=0.19
+      - opencv-contrib-python
+      - pillow
+      - pyyaml
+      - safetensors
+      - scikit-image
+      - scipy
+      - timm
+      - torch>=2.12.0.dev --index-url https://download.pytorch.org/whl/nightly/cu128
+      - torchvision --index-url https://download.pytorch.org/whl/nightly/cu128
+      - tqdm
+      - xformers
+      - pyzed==5.2

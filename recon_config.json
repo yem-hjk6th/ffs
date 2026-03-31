@@ -1,0 +1,37 @@
+{
+    "_comment": "reconstruct_svo.py 统一配置文件",
+
+    "_section_input": "=== 输入文件 ===",
+    "extrinsics": "C:/Users/888y9/Desktop/rsi_printing/build/calib/res/20260331_170916/T_cam2gripper.txt",
+
+    "_section_sampling": "=== 帧采样 ===",
+    "start": 65,
+    "end": 2965,
+    "skip_frames": 100,
+    "max_frames": 0,
+
+    "_section_ffs": "=== FFS 深度估计 ===",
+    "model": "23-36-37",
+    "valid_iters": 32,
+    "max_disp": 320,
+
+    "_section_depth": "=== 深度 / 点云 ===",
+    "depth_min": 0.1,
+    "depth_max": 2.0,
+    "point_stride": 2,
+    "voxel_mm": 3.0,
+
+    "_section_bbox": "=== 世界坐标 bbox ===",
+    "use_bbox": true,
+    "bbox_pad_mm": 80.0,
+
+    "_section_output": "=== 输出 ===",
+    "save_depth_npy": true,
+
+    "_section_depth_roi": "=== 深度图 ROI 裁剪 (像素坐标, 全图 2208x1242) ===",
+    "depth_roi_enabled": false,
+    "depth_roi": [350, 500, 1850, 1050],
+
+    "_section_depth_output": "=== 深度图输出模式: tri / depth_only / sep_rgb_depth ===",
+    "depth_output_mode": "tri"
+}
