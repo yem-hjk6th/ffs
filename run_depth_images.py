@@ -143,11 +143,15 @@ def main():
 
         disp, vis = run_stereo(model, img_l, img_r, args.valid_iters, args.scale)
 
-        # 保存可视化
+        # 保存可视化 (resize vis to match original if scale != 1)
+        if vis.shape[:2] != img_l.shape[:2]:
+            vis = cv2.resize(vis, (img_l.shape[1], img_l.shape[0]), interpolation=cv2.INTER_NEAREST)
         combined = np.concatenate([img_l, vis], axis=1)
         cv2.imwrite(str(out_dir / f"{name}_disp.png"), combined[:, :, ::-1])
 
-        # 保存深度
+        # 保存 disparity + 深度
+        if args.save_npy:
+            np.save(str(out_dir / f"{name}_disp.npy"), disp.astype(np.float32))
         if K is not None and baseline is not None and args.save_npy:
             depth = K[0, 0] * baseline / np.clip(disp, 1e-6, None)
             np.save(str(out_dir / f"{name}_depth.npy"), depth.astype(np.float32))

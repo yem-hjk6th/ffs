@@ -1,13 +1,13 @@
 {
-    "_comment": "reconstruct_svo.py 统一配置文件",
+    "_comment": "reconstruct_svo.py 统一配置文件 — 20260331 长录像重建",
 
     "_section_input": "=== 输入文件 ===",
     "extrinsics": "C:/Users/888y9/Desktop/rsi_printing/build/calib/res/20260331_170916/T_cam2gripper.txt",
 
-    "_section_sampling": "=== 帧采样 ===",
-    "start": 65,
-    "end": 2965,
-    "skip_frames": 100,
+    "_section_sampling": "=== 帧采样 (200→13200, 每400帧, 共34帧) ===",
+    "start": 200,
+    "end": 13200,
+    "skip_frames": 400,
     "max_frames": 0,
 
     "_section_ffs": "=== FFS 深度估计 ===",
